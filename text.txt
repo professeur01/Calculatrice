@@ -1,0 +1,78 @@
+DESCRIPTION
+Front-end Style Guide
+
+Mise en page
+
+Les designs ont été créés avec les largeurs suivantes :
+
+Mobile : 375px;
+Ordinateur de bureau : 1440px.
+Couleurs
+
+Thème 1
+
+Arrière-plans
+
+Bleu très foncé désaturé (arrière-plan principal) : hsl(222, 26%, 31%);
+Bleu très foncé désaturé (arrière-plan de la bascule, arrière-plan du clavier) : hsl(223, 31%, 20%);
+Bleu très foncé désaturé (fond d'écran) : hsl(224, 36%, 15%);
+Touches
+
+Bleu foncé désaturé (arrière-plan des touches) : hsl(185, 42%, 37%);
+Bleu foncé désaturé (ombre de la touche) : hsl(224, 28%, 35%);
+Orange grisâtre clair (arrière-plan de la touche) : hsl(25, 98%, 40%);
+Orange grisâtre (ombre touche) : hsl(6, 70%, 34%);
+Texte
+
+Bleu grisâtre très foncé : hsl(221, 14%, 31%);
+Blanc : hsl(0, 0%, 100%);
+Thème 2
+
+Arrière-plans
+
+Gris clair (arrière-plan principal) : hsl(0, 0%, 90%);
+Rouge grisâtre (arrière-plan de la bascule, arrière-plan du clavier) : hsl(0, 5%, 81%);
+Gris très clair (fond d'écran) : hsl(0, 0%, 93%);
+Touches
+
+Cyan foncé modéré (arrière-plan des touches) : hsl(0, 0%, 93%);
+Cyan très foncé (ombre de la touche) : hsl(185, 58%, 25%);
+Orange (arrière-plan de la touche, bascule) : hsl(185, 58%, 25%);
+Orange foncé (ombre portée) : hsl(25, 99%, 27%);
+Jaune grisâtre clair (fond de la touche) : hsl(45, 7%, 89%);
+Orange grisâtre foncé (ombre touche) : hsl(35, 11%, 61%);
+Texte
+
+Jaune grisâtre très foncé : hsl(60, 10%, 19%);
+Blanc (texte) : hsl(0, 0%, 100%);###
+Thème 3
+
+Arrière-plans
+
+Violet très foncé (fond principal) : hsl(268, 75%, 9%);
+Violet très foncé (arrière-plan de la bascule, arrière-plan du clavier, arrière-plan de l'écran) : hsl(268, 71%, 12%);
+Touches
+
+Violet foncé (arrière-plan des touches) : hsl(281, 89%, 26%);
+Magenta doux (ombre de la touche) : hsl(285, 91%, 52%);
+Cyan pur (arrière-plan de la touche, bascule) : hsl(176, 100%, 44%);
+Cyan doux (ombre de la touche) : hsl(177, 92%, 70%);
+Violet très foncé (arrière-plan de la touche) : hsl(268, 47%, 21%);
+Magenta foncé (ombre touche) : hsl(290, 70%, 36%);
+Texte- Jaune clair : hsl(52, 100%, 62%);#
+Bleu très foncé : hsl(198, 20%, 13%);
+Blanc (texte) : hsl(0, 0%, 100%);
+Typographie
+
+Corps du texte
+
+Taille de la police (chiffres) : 32px;
+Police- Famille : League Spartan;
+Poids : 700;
+ 
+Front-end Action Guide
+
+Vos utilisateurs doivent pouvoir
+Voir la taille des éléments s'adapter à la taille de l'écran de leur appareil;
+Effectuer des opérations mathématiques telles que l'addition, la soustraction, la multiplication et la division;
+Ajuster le thème de couleur en fonction de leurs préférences.
