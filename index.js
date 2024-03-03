@@ -117,49 +117,132 @@ troisDiv.addEventListener("click", () => {
 
 //Fin des Themes======================================================
 
-    reset.addEventListener("click", () => {
-      ecran.textContent = "0";
-    });
-   
-    
-    egale.addEventListener("click", () => {
-      try {
-        const resultat = eval(ecran.textContent);
-        if (isNaN(resultat)) {
-          throw new Error("Erreur de calcul");
-        }
-        ecran.textContent = resultat;
-      } catch (erreur) {
-        ecran.textContent = "ERROR"; 
-      }
-    });
-    
-    boutonDel.addEventListener("click", () => {
-      const contenuEcran = ecran.textContent;
-      ecran.textContent = contenuEcran.slice(0, -1);
-    
-      if (ecran.textContent === "") {
-        ecran.textContent = "0";
+  let numbersFirst = "";
+  let operateurs = "";
+  let numbersSecond = "";
+  let resultat = 0;
+  let SecondInfinity = "";
 
-      }else if (ecran.textContent === "ERROR") {
-        ecran.textContent = "";
+
+  const numbers = document.querySelectorAll(".number");
+  numbers.forEach(number => {
+    number.addEventListener('click', function(){
+      if (! operateurs) {
+         numbersFirst += number.textContent;
+         ecran.textContent = numbersFirst;
+         console.log("numbersFirst " + numbersFirst);
       }
-    });
-    let number = document.querySelectorAll('.number');
-    number.forEach((number) => {
-      number.addEventListener("click", () => {
-        const valeurDuBouton = number.innerText;
-        if (ecran.textContent === "0") {
-          ecran.textContent = valeurDuBouton;
-        } else {
-          ecran.textContent += valeurDuBouton;
+      else{
+        numbersSecond += number.textContent;
+        ecran.textContent = numbersSecond;
+        console.log("numbersSecond " + numbersSecond);
+      }
+    })
+  });
+
+  const operators = document.querySelectorAll(".operateur");
+  operators.forEach(operateur => {
+    operateur.addEventListener('click', function(){
+      if (operateurs && numbersSecond) {
+        switch (operateurs) {
+           // Opération sur l'addition
+          case "+":
+            resultat = resultat ? resultat + Number(numbersSecond) :  Number(numbersFirst) + Number(numbersSecond);
+         ecran.textContent = resultat;
+         numbersFirst =""
+         numbersSecond =""
+          console.log(resultat);
+            break;
+            // Opération sur la soustraction
+            case "-":
+              resultat = resultat ? resultat - Number(numbersSecond) :  Number(numbersFirst) - Number(numbersSecond);
+           ecran.textContent = resultat;
+           numbersFirst =""
+           numbersSecond =""
+            console.log(resultat);
+              break;
+                  // Opération sur le produit
+              case "*":
+                resultat = resultat ? resultat * Number(numbersSecond) :  Number(numbersFirst) * Number(numbersSecond);
+             ecran.textContent = resultat;
+             numbersFirst =""
+             numbersSecond =""
+              console.log(resultat);
+                break;
+                    // Opération sur la division
+              case "/":
+                resultat = resultat ? resultat / Number(numbersSecond) :  Number(numbersFirst) / Number(numbersSecond);
+             ecran.textContent = resultat;
+             SecondInfinity = numbersSecond;
+             numbersFirst =""
+             numbersSecond =""
+              console.log(resultat);
+                break;
+               // Opération sur le égale
+        case "=":
+          ecran.textContent = resultat;
+          break;
+          default:
+            break;
         }
-      });
-    });
-    
+      }
+      else{
+        operateurs = operateur.textContent;
+        console.log(operateurs);
+      }
+    })
+  });
   
+  egale.addEventListener("click", ()=>{
+    if (operateurs === "/" && SecondInfinity === "0") {
+      ecran.textContent = "ERROR";
+      numbersFirst = "";
+      operateurs = "";
+      numbersSecond = "";
+      resultat = 0;
+    }
+  })
+     const point = document.querySelector(".point");
+     point.addEventListener('click', () =>{
+      if (! numbersFirst) {
+        numbersFirst = "0.";
+        
+        ecran.textContent = numbersFirst;
+      } else if(numbersFirst && ! numbersFirst.includes(".") && ! operateurs){
+        numbersFirst = numbersFirst + ".";
+        ecran.textContent = numbersFirst;
+      }else if(! numbersSecond && operateurs){
+        numbersSecond = "0.";
+        ecran.textContent = numbersSecond;
+       } else if(numbersSecond && ! numbersSecond.includes(".") ){
+        numbersSecond = numbersSecond + ".";
+        ecran.textContent = numbersSecond;
+       } 
+       
+     })
 
-   
+     reset.addEventListener("click", ()=>{
+      numbersFirst = "";
+      operateurs = "";
+      numbersSecond = "";
+      resultat = 0;
+      SecondInfinity = "";
+      ecran.textContent = "0";
+    })
+    del.addEventListener("click", ()=>{
+ if (numbersFirst && !operateurs) {
+numbersFirst = numbersFirst.slice(0, -1);
+ ecran.textContent = numbersFirst;
+ }else if(numbersSecond && operateurs){
+  numbersSecond = numbersSecond.slice(0, -1);
+  ecran.textContent = numbersSecond;
+ }else if(resultat){
+  resultat = resultat.toString().slice(0, -1);
+  ecran.textContent = resultat;
+ }
+  }
+
+)
     
    
 
